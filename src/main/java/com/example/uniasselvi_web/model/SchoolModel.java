@@ -8,7 +8,6 @@ public class SchoolModel {
     private String city;
     private String state;
     private String status;
-    private SchoolModel schoolModel;
 
     public int getId() {
         return id;
@@ -66,13 +65,6 @@ public class SchoolModel {
         this.status = status;
     }
 
-    public SchoolModel getSchoolModel() {
-        return schoolModel;
-    }
-
-    public void setSchoolModel(SchoolModel schoolModel) {
-        this.schoolModel = schoolModel;
-    }
 
     @Override
     public String toString() {

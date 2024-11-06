@@ -32,7 +32,7 @@
 <div class="container-fluid table-container">
     <div class="d-flex justify-content-between mb-3">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#schoolModal">
-        <i class="fas fa-plus"></i> Add Escola
+            <i class="fas fa-plus"></i> Add Escola
         </button>
     </div>
 
@@ -70,7 +70,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="schoolModalLabel">Add New School</h5>
+                    <h5 class="modal-title" id="schoolModalLabel">Adicionar Nova Escola</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -112,5 +112,43 @@
         </div>
     </div>
 </div>
+
+<script>
+    async function saveSchool() {
+        const form = document.getElementById('schoolForm');
+
+        const school = {
+            name: form.schoolName.value,
+            email: form.schoolEmail.value,
+            phone: form.schoolPhone.value,
+            city: form.schoolCity.value,
+            state: form.schoolState.value,
+            status: form.schoolStatus.value
+        };
+
+        try {
+            const response = await fetch('school/insert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(school)
+            });
+
+            if (response.ok) {
+                alert('Dados da escola salvos com sucesso!');
+                form.reset();
+                const modal = bootstrap.Modal.getInstance(document.getElementById('schoolModal'));
+                modal.hide();
+            } else {
+                alert('Erro ao salvar os dados da escola.');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao salvar os dados da escola.');
+        }
+    }
+</script>
+
 </body>
 </html>

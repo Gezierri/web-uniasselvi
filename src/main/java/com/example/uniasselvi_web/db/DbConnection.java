@@ -12,11 +12,10 @@ public class DbConnection {
 
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("org.postgresql.Driver");
         return DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
     }
 
-    // Método para fechar a conexão
     public static void closeConnection(Connection connection) {
         if (connection != null) {
             try {

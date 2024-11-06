@@ -10,6 +10,7 @@ public class StudentModel {
     private LocalDate birthDate;
     private String gender;
     private String status;
+    private SchoolModel schoolModel;
 
     public int getId() {
         return id;
@@ -65,6 +66,14 @@ public class StudentModel {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public SchoolModel getSchoolModel() {
+        return schoolModel;
+    }
+
+    public void setSchoolModel(SchoolModel schoolModel) {
+        this.schoolModel = schoolModel;
     }
 
     @Override
