@@ -63,13 +63,10 @@
 
 <div class="sidebar">
     <div class="sidebar-header">
-        Sistema Estudante
+        Sistema Escolas
     </div>
     <hr style="border-top: 1px solid #c2c7d0;">
-    <a href="index.jsp?page=student" class="nav-link">
-        <i class="fas fa-user-graduate"></i> Aluno
-    </a>
-    <a href="index.jsp?page=school" class="nav-link">
+    <a href="<%= request.getContextPath() %>/school" class="nav-link">
         <i class="fas fa-school"></i> Escola
     </a>
 </div>
@@ -85,6 +82,7 @@
     } else if (pageAtual.equals("school")) {
     %>
     <jsp:include page="school.jsp"/>
+    <%--    <jsp:forward page="/school/" />--%>
     <%
     } else {
     %>
